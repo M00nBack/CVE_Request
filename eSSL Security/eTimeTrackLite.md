@@ -6,6 +6,25 @@ Test Version:  eTimeTrackLite 12.0 (20250704)
 
 ### UpdateDeviceLastPingBySerialNumber Unauthorized SQL Injection（CVE-2025-60287）
 
+**CVE:** CVE-2025-60287 
+
+**Vulnerability Type:** SQL Injection 
+
+**Attack Type:** Remote 
+
+**Affected Versions:** eTimeTrackLite Web ≤ 12.0 (20250704)
+
+**Impact**
+
+- Information disclosure
+- Remote Code execution (via xp_cmdshell)
+
+**Description**
+
+A SQL injection vulnerability exists in the UpdateDeviceLastPingBySerialNumber function. Unsanitized user input can be concatenated into dynamic SQL statements, allowing a remote unauthenticated attacker to inject SQL payloads.
+
+**Details**
+
 cdata.aspx
 
 ![image-20250516113234401](eTimeTrackLite/image-20250516113234401.png)
@@ -91,7 +110,7 @@ Connection: keep-alive
 
 
 
-### AddDeviceErrorMessage Unauthorized SQL Injection（CVE-2025-60287）
+### AddDeviceErrorMessage Unauthorized SQL Injection
 
 devicecmd.Page_Load(object, EventArgs) : void @0600038F
 
@@ -130,7 +149,7 @@ a
 
 ![image-20250516141638338](eTimeTrackLite/image-20250516141638338.png)
 
-### GetEmployeeLoginDetails Unauthorized SQL Injection（CVE-2025-60287）
+### GetEmployeeLoginDetails Unauthorized SQL Injection
 
 EmployeeLogin.Btn_Ok_Click(object, EventArgs) : void @06000387
 
@@ -182,13 +201,31 @@ xxxx';EXEC sp_configure 'show advanced options', 1;RECONFIGURE;EXEC sp_configure
 
 ### Unauthorized modification of database configuration（CVE-2025-60291）
 
+**CVE:** CVE-2025-60291
+
+**Vulnerability Type:** Incorrect / Improper Access Control
+
+**Attack Type:** Remote
+
+**Affected Versions:** eTimeTrackLite Web ≤ 12.0 (20250704)
+
+**Impact**
+
+- Integrity impact (unauthorized modification of DB connection configuration)
+
+**Description**
+
+An access control vulnerability exists in eTimeTrackLite Web that allows a remote unauthenticated or insufficiently authorized attacker with access to a specific route to change database connection parameters.
+
+**Details**
+
 /admin/DBSettings.aspx
 
 Unauthorized access can control connections to any database, thus bypassing the login process
 
 ![image-20250516163011955](eTimeTrackLite/image-20250516163011955.png)
 
-### Information Disclosure Vulnerabilities（CVE-2025-60291）
+### Information Disclosure Vulnerabilities
 
 /Settings.txt can obtain the database connection configuration
 
@@ -233,7 +270,7 @@ plaintext = decrypt(ciphertext, key)
 print("plaintext:", plaintext)
 ```
 
-### Multiple unauthorized SQL injections in MobileAppService.asmx（CVE-2025-60287）
+### Multiple unauthorized SQL injections in MobileAppService.asmx
 
 MobileAppService.CheckAuthorisedUser(string, string) : string @0600000E
 
@@ -301,7 +338,7 @@ Connection: keep-alive
 
 
 
-### Multiple unauthorized SQL injections in WebService.asmx（CVE-2025-60287）
+### Multiple unauthorized SQL injections in WebService.asmx
 
 WebService.UserLogin(string, string) : int @06000350
 
