@@ -8,7 +8,7 @@ test version:  5.9.4.1
 
 SoapControllerMySQL
 
-![image-20240911110146542](Netwrix Endpoint Protector From Pre-Auth SQLI to RCE/image-20240911110146542.png)
+![image-20240911110146542](images/image-20240911110146542.png)
 
 Searching for public function with parameters found only
 
@@ -21,17 +21,17 @@ Searching for public function with parameters found only
 
 Ping
 
-![image-20240911174755803](Netwrix Endpoint Protector From Pre-Auth SQLI to RCE/image-20240911174755803.png)
+![image-20240911174755803](images/image-20240911174755803.png)
 
 SQL injection exists when inserting or updating
 
 Stack injection is possible. This vulnerability can be exploited to add arbitrary users and inject malicious data into the database.
 
-![image-20240911174851219](Netwrix Endpoint Protector From Pre-Auth SQLI to RCE/image-20240911174851219.png)
+![image-20240911174851219](images/image-20240911174851219.png)
 
 Access is only possible through SSL verification
 
-![image-20250517132852829](Netwrix Endpoint Protector From Pre-Auth SQLI to RCE/image-20250517132852829.png)
+![image-20250517132852829](images/image-20250517132852829.png)
 
 You can register and obtain a certificate through /wsf/webservice.php, and then request the obtained certificate.
 
@@ -43,11 +43,11 @@ ADOperationLogPeer::getFormattedMessage
 
 Deserialization exists
 
-![image-20250517130743472](Netwrix Endpoint Protector From Pre-Auth SQLI to RCE/image-20250517130743472.png)
+![image-20250517130743472](images/image-20250517130743472.png)
 
 ad_logActions::executeList calls the getFormattedMessage method
 
-![image-20250517130819207](Netwrix Endpoint Protector From Pre-Auth SQLI to RCE/image-20250517130819207-1747459959190-5.png)
+![image-20250517130819207](images/image-20250517130819207-1747459959190-5.png)
 
 Therefore, you only need to insert malicious data into the adoperation_log table, and deserialization can be triggered during list query to achieve remote code execution.
 
@@ -99,7 +99,7 @@ Combining two vulnerabilities can achieve unauthorized remote code execution.
 
 You can just change the directory and run netwrix_cososys_endpoint_protector_sqli_rce.py
 
-![image-20250517134001159](Netwrix Endpoint Protector From Pre-Auth SQLI to RCE/image-20250517134001159.png)
+![image-20250517134001159](images/image-20250517134001159.png)
 
 ## 0x03 Disclosure Timeline
 
